@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('Run Script') {
+        stage('Send News Mail') {
             steps {
                 bat 'python app.py'
             }
