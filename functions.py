@@ -1,15 +1,14 @@
-# functions.py
-
 import os
 import json
 import requests
 from email.mime.text import MIMEText
 import smtplib
 
+# Constants
 USERS_FILE = 'users.json'
-API_KEY = 'a85520c611194e80a7e989fad1db00b3'
+API_KEY = 'a85520c611194e80a7e989fad1db00b3'  # Replace with your actual NewsAPI key
 FROM_EMAIL = 'chandrikanarne45@gmail.com'
-EMAIL_PASSWORD = 'qdgahyugxnpowxzl'
+EMAIL_PASSWORD = 'qdgahyugxnpowxzl'  # Replace with your real Gmail App Password
 
 def load_users():
     if os.path.exists(USERS_FILE):
