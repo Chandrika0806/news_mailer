@@ -127,7 +127,9 @@ def send_news():
         send_email(email, news)
     return "News sent to all users!"
 
-
-# 🔁 Start the app
-if __name__ == '__main__':
+def start_server():
     app.run(debug=True)
+
+if __name__ == '__main__':
+    start_server()
+
