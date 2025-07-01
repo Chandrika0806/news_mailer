@@ -1,14 +1,18 @@
 {
-  "Chandrikanarne45@gmail.com": {
-    "password": "123456",
-    "categories": [
-      "sports"
-    ]
-  },
   "chandrikanarne45@gmail.com": {
     "password": "123456",
-    "categories": [
-      "sports"
-    ]
+    "categories": ["technology", "health", "sports"]
+  },
+  "rajasriveeramusti8@gmail.com": {
+    "password": "pass123",
+    "categories": ["science", "general"]
+  },
+  "23951A67B3@iare.ac.in": {
+    "password": "abcxyz",
+    "categories": ["business", "entertainment"]
+  },
+  "23951A67A9@iare.ac.in": {
+    "password": "friend456",
+    "categories": ["sports", "technology"]
   }
 }
