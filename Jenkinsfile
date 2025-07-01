@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        cron('0 7,14,20 * * *')  // 7 AM, 2 PM, 8 PM daily
+    }
+
     stages {
         stage('Install Dependencies') {
             steps {
@@ -11,7 +15,7 @@ pipeline {
 
         stage('Send News Mail') {
             steps {
-                bat 'python app.py'
+                bat 'python news_sender.py'
             }
         }
     }
