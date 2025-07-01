@@ -1,4 +1,4 @@
-from app import load_users, fetch_news, send_email
+from functions import load_users, fetch_news, send_email
 
 def main():
     users = load_users()
