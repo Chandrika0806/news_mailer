@@ -6,7 +6,7 @@ def main():
 
     users = load_users()
     if not users:
-        print("⚠️ No users found in users.json.")
+        print("No users found in users.json.")
         return
 
     for email, info in users.items():
@@ -14,9 +14,9 @@ def main():
             print(f"Sending news to: {email}")
             news = fetch_news(info['categories'])
             send_email(email, news)
-            print(f"✅ Successfully sent to: {email}")
+            print(f"Successfully sent to: {email}")
         except Exception as e:
-            print(f"❌ Error sending to {email}: {e}")
+            print(f"Error sending to {email}: {e}")
 
     print("--- News sending completed ---")
 
