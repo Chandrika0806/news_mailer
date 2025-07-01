@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  newsmailer:
+    build: .
+    container_name: news_mailer
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: python app.py
+
+  newsmailer-cron:
+    build: .
+    container_name: news_mailer_cron
+    volumes:
+      - .:/app
+    command: python send_news.py
