@@ -30,8 +30,8 @@ def fetch_news(categories):
         response = requests.get(url)
         data = response.json()
 
-        # Debug print to track NewsAPI results
-        print(f"Fetching '{category}' → Status: {data.get('status')} | Articles: {len(data.get('articles', []))}")
+        # Windows-safe console output (no fancy arrows!)
+        print(f"Fetching '{category}' --> Status: {data.get('status')} | Articles: {len(data.get('articles', []))}")
 
         if data['status'] == 'ok' and data['articles']:
             headlines = [article['title'] for article in data['articles'][:5]]
@@ -53,7 +53,7 @@ def send_email(to_email, news_by_category):
             content += "</ul><br>"
 
     msg = MIMEText(content, 'html')
-    msg['Subject'] = 'Your Personalized News Digest 📰'
+    msg['Subject'] = 'Your Personalized News Digest'
     msg['From'] = FROM_EMAIL
     msg['To'] = to_email
 
