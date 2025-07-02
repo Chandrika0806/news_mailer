@@ -23,20 +23,23 @@ def save_users(users):
     with open(USERS_FILE, 'w') as f:
         json.dump(users, f, indent=2)
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 def fetch_news(categories):
     news_by_category = {}
     for category in categories:
         url = f'https://newsapi.org/v2/top-headlines?country=in&category={category}&apiKey={API_KEY}'
-        response = requests.get(url)
-        data = response.json()
-
-        # Windows-safe console output (no fancy arrows!)
-        print(f"Fetching '{category}' --> Status: {data.get('status')} | Articles: {len(data.get('articles', []))}")
-
-        if data['status'] == 'ok' and data['articles']:
-            headlines = [article['title'] for article in data['articles'][:5]]
-            news_by_category[category] = headlines
+        try:
+            response = requests.get(url, verify=False)  # Disable SSL verification
+            data = response.json()
+            if data['status'] == 'ok':
+                headlines = [article['title'] for article in data['articles'][:5]]
+                news_by_category[category] = headlines
+        except requests.exceptions.RequestException as e:
+            print(f"❌ Failed to fetch news for {category}: {e}")
     return news_by_category
+
 
 def send_email(to_email, news_by_category):
     content = ""
